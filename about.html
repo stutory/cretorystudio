@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CretoryStudio</title>
+    <link rel="icon" href="images/logo.png" />
+
+    <style>
+
+        @font-face {
+            font-family: eras;
+            src: url(/fonts/eras-itc-bold.ttf) format('truetype');
+        }
+
+        *, html {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+          background: url(images/image.png);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: white;
+            height: 100vh;
+            font-family: 'eras';
+        }
+
+        /* navbar */
+
+        nav {
+           width: 100%;
+           padding: 7.5px 15px;
+           display: flex;
+           justify-content: space-between;
+           align-items: center;
+           backdrop-filter: blur(10px);
+           background-color: rgba(255, 255, 255, 0.1);
+           color: white;
+        }
+
+
+        .logo {
+            height: 4%;
+            width: 6%;
+            margin: 0 0 0 2%;
+        }   
+
+        .navbar {
+            position: absolute;
+            right: 5%;
+            top: 4%;   
+            margin: 2%;    
+        }
+
+        .navbar span {
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+
+        
+        .a {
+            text-decoration: none;
+            color: white;
+            transition: transform .3s ease;
+            display: inline-block;
+        }
+
+        .a:hover {
+            transform: scale(1.3);
+        }
+        
+        .HumbergMenu {
+            display: none;
+        }
+
+        .listMenu {
+            display: none;
+        }
+
+        /* content */
+
+        .mainPicture {
+            height: 7.425cm;
+            width: 5.25cm;
+        }
+
+        
+
+        /* structure Organisasi */
+
+        .structure {
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            height: 100vh;
+        }
+
+        .org-chart {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      position: relative;
+    }
+
+    .level {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      position: relative;
+    }
+
+    .box {
+      border: 2px solid #333;
+      border-radius: 10px;
+      background-color: #f8f8f8;
+      width: 140px;
+      padding: 10px;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .position {
+      font-weight: bold;
+      margin-bottom: 5px;
+      border-bottom: 1px solid #999;
+      padding-bottom: 4px;
+      color: black;
+    }
+
+    .name {
+      margin-top: 5px;
+      color: black;
+    }
+
+    .vertical-line {
+      width: 2px;
+      height: 30px;
+      background-color: white;
+      margin: 0 auto;
+    }
+
+    .horizontal-line {
+      width: 100%;
+      height: 2px;
+      background-color: white;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .connector-wrapper {
+      position: relative;
+      width: 100%;
+    }
+
+    h2 {
+      margin-bottom: 40px;
+    }
+
+        .logoB {
+            display: none;
+        }
+
+        .titleB {
+            display: none;
+        }
+
+        .logoPage {
+          height: 100vh;
+          width: 100%;
+        }
+
+        .logo1 {
+          height: 200px;
+          width: 200px;
+          margin-left: 25%;
+          margin-top: 10%;
+        }
+
+        .logo2 {
+          height: 220px;
+          width: 220px;
+          margin-left: 20%;
+        }
+
+        .o {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .filosofiLogo {
+            width: 100%;
+            max-width: 900px;
+            font-size: 1.2em;
+            margin-top: 5%;
+        }
+
+        .colorPage1{
+          height: 100vh;
+          width: 100%;
+        }
+
+        .colorPallete1 {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-top: 10%;
+        }
+
+        .reffLogo {
+          height: 150px;
+          width: 150px;
+        }
+
+        .color1 {
+          background-color: #AF46AF;
+          height: 150px;
+          width: 150px;
+          border-radius: 20%;
+          margin: 0 5% 0 5%;
+        }
+        .color2 {
+          background-color: #363F6D;
+          height: 150px;
+          width: 150px;
+          border-radius: 20%;
+          margin: 0 5% 0 5%;
+        }
+
+        .colorCode {
+          font-size: 1.2em;
+        }
+
+        .colorPage2 {
+          height: 100vh;
+          width: 100%;
+        }
+
+        .colorFilosofi {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-top: 10%;
+        }
+
+        .filosofiText {
+            width: 100%;
+            max-width: 900px;
+            font-size: 1.2em;
+        }
+        
+        .colorPallete2 {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-top: 10%;
+        }
+
+        .color3 {
+          background-color: #333;
+          height: 150px;
+          width: 150px;
+          border-radius: 20%;
+          margin: 0 2% 0 2%;
+        }
+        .color4 {
+          background-color: #333;
+          height: 150px;
+          width: 150px;
+          border-radius: 20%;
+          margin: 0 2% 0 2%;
+        }
+        .color5 {
+          background-color: #333;
+          height: 150px;
+          width: 150px;
+          border-radius: 20%;
+          margin: 0 2% 0 2%;
+        }
+
+        /* footer */
+
+        .footerB {
+            display: none;
+        }
+
+        footer {
+        position: absolute;
+        bottom: 2%;
+        left: 2%;
+       }
+
+       .kontak {
+        margin-left: 20px;
+       }
+
+       .aContact, .kontak {
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 1em;
+        color: white;
+       }
+
+
+/* smooth scroll */
+
+
+
+/* .logoPage {
+  animation: appear linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 20%;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: rotate(180deg);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+} */
+
+/* end smooth scroll */
+
+
+       @media screen and (max-width: 768px) {
+
+        /* navbar */
+        
+
+        nav {
+            display: none;
+        }
+
+        .navB {
+            width: 100%;
+           padding: 7.5px 15px;
+           display: flex;
+           justify-content: space-between;
+           align-items: center;
+           backdrop-filter: blur(10px);
+           background-color: rgba(255, 255, 255, 0.1);
+           color: white;
+           z-index: 1000;
+        }
+
+        
+
+        .logo {
+            display: none;
+        }
+
+        .logo2 {
+            height: 2%;
+            width: 4%;
+            margin: 2% 0 0 2%;
+            display: none;
+        }
+
+        /* .navbar & .navbar span di display none agar tidak tampil di display android */
+        
+          .navbar  {
+            display: none;
+            margin: 2%;    
+        } 
+
+         .navbar span {
+            font-size: 1.5em;
+            cursor: pointer;
+            display: none;
+        } 
+
+
+        .HumbergMenu {
+            font-size: 1.9em;
+            display: block;
+        }
+
+        .listMenu {
+            cursor: pointer;
+            display: none;
+            width: 30%;
+            height: 100%;
+            /* background-color: #006F0D; */
+            color: white;
+            flex-direction: column;
+            position: absolute;
+            top: 50px;
+            left: 0;
+            list-style-type: none;
+        }
+
+        .listMenu li {
+            text-align: center;
+            padding: 15px 0 0 0;
+        }
+
+        .hrefList {
+            text-decoration: none;
+            color: white;
+            font-size: 1.2em;
+        }
+
+        .hrefList:hover {
+            color: gray;
+            transition: .3s ease-in-out;
+            transition-delay: .3s;
+        }
+
+        .titleB {
+            position: absolute;
+            left: 15%;
+            top: 25%;
+            display: block;
+        }
+
+        .logoB {
+            position: absolute;
+            right: 10%;
+            top: 18%;
+            width: 40px;
+            height: 40px;
+            display: block;
+        }
+
+        /* content */
+
+        /* structure organisasi */
+
+        .org-chart {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      position: relative;
+    }
+
+    .level {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      position: relative;
+    }
+
+    .box {
+      border: 2px solid #333;
+      border-radius: 10px;
+      background-color: #f8f8f8;
+      width: 140px;
+      padding: 10px;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .position {
+      font-weight: bold;
+      margin-bottom: 5px;
+      border-bottom: 1px solid #999;
+      padding-bottom: 4px;
+      color: black;
+    }
+
+    .name {
+      margin-top: 5px;
+      color: black;
+    }
+
+    .vertical-line {
+      width: 2px;
+      height: 30px;
+      background-color: #333;
+      margin: 0 auto;
+    }
+
+    .horizontal-line {
+      width: 100%;
+      height: 2px;
+      background-color: #333;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .connector-wrapper {
+      position: relative;
+      width: 100%;
+    }
+
+    h2 {
+      margin-bottom: 40px;
+    }
+       
+
+    }
+       
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="Logo">
+            <img src="images/LOGO 2.png" class="logo" />
+        </div>
+
+        <div class="navbar">
+            <span><a href="index.html" class="a">Beranda</a> </span>
+            <span>|</span>
+            <span><a href="Blog/blog.html" class="a">Blog</a></span>
+            <span>|</span>
+            <span><a href="#" class="a">About</a></span>
+        </div>
+    </nav>
+
+    <!-- navbar for android -->
+
+    <nav class="navB">
+        <div class="HumbergMenu" id="HumbergMenu">
+            &#9776
+        </div>
+        <ul class="listMenu" id="list">
+            <img src="images/LOGO 2.png" class="logo2" />
+            <li><a href="index.html" class="hrefList">Beranda</a></li>
+            <li><a href="blog.html" class="hrefList">Blog</a></li>
+            <li><a href="#" class="hrefList">About</a></li>
+        </ul>
+        <h1 class="titleB">About</h1>
+    <img src="images/logo.png" alt="logo" class="logoB" />
+</nav>
+
+<!-- content for android -->
+
+<div class="scroll">
+    <div class="structure">
+        <h2>Company Organizational structure</h2>
+      <div class="org-chart">
+        <!-- Manager -->
+        <div class="level">
+          <div class="box">
+            <div class="position">Manager</div>
+            <div class="name">Calvint Charles Wangkanusa</div>
+          </div>
+        </div>
+    
+        <!-- Garis Vertikal dari Manager ke Anggota -->
+        <div class="vertical-line"></div>
+    
+        <!-- Garis Horizontal atas anggota -->
+        <div class="connector-wrapper">
+          <div class="horizontal-line"></div>
+        </div>
+    
+        <!-- Anggota -->
+        <div class="level">
+          <div class="box">
+            <div class="position">Admin</div>
+            <div class="name">Ibnu Nabila Putri</div>
+          </div>
+          <div class="box">
+            <div class="position">Bendahara</div>
+            <div class="name">Sri Mulyani</div>
+          </div>
+          <div class="box">
+            <div class="position">Designer</div>
+            <div class="name">Rahil Rhiziq Islami</div>
+          </div>
+          <div class="box">
+            <div class="position">Designer</div>
+            <div class="name">Marcel steve Imanuel</div>
+          </div>
+          <div class="box">
+            <div class="position">Produksi</div>
+            <div class="name">Haikal Maulana</div>
+          </div>
+          <div class="box">
+            <div class="position">Produksi</div>
+            <div class="name">Muchlisun</div>
+          </div>
+          <div class="box">
+            <div class="position">Content</div>
+            <div class="name">Nining</div>
+          </div>
+          <div class="box">
+            <div class="position">Content</div>
+            <div class="name">Velly Vabella Almiranti</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class="logoPage">
+  <div>
+    <img src="images/logo.png" class="logo1" />
+    <img src="images/LOGO 2.png" class="logo2" />
+  </div>
+  <div class="o">
+    <p class="filosofiLogo">- Dalam logo kami melambangkan huruf C dan huruf S.<br>
+      - Huruf C dapat kita temukan di sebelah kiri dan kanan, lalu huruf S berada di tengah.<br>
+      - Huruf C di sebelah kiri dibuat terbalik agar logo nya dapat di gunakan dengan bolak balik atau tanpa memandang atas dan bawahnya.<br>
+      - Logo tersebut dibuat bolak balik agar menciptakan kesan keseimbangan dan harmoni di setiap anggota dan divisi perusahaan kami.<br>
+      - Logo kami terdapat dua warna yaitu warna terang dan juga gelap yang dapat digunakan sesuai warna background agar dapat terlihat dengan baik</p>
+  </div>
+</div>
+
+
+<div class="colorPage1">
+  <div class="colorPallete1">
+      <img src="images/logo.png" class="reffLogo" />
+    <div class="color1"></div>
+    <p class="colorCode">#AF46AF</p>
+    <div class="color2"></div>
+    <p class="colorCode">#363F6D</p>
+  </div>
+  <div class="colorFilosofi">
+    <p class="filosofiText">
+      - Warna ungu cerah dengan kode #AF46AF melambangkan kreativitas dan imajinasi kami.<br>
+selain melambangkan krearivitas warna ungu juga melambangkan kebijaksanaan dan wawasan mendalam
+<br>
+- warna biru gelap dengan kode #363F6D melambangkan ketenangan yang memberikan kesan tenang, aman, dan dapat dipercaya
+    </p>
+  </div>
+</div>
+
+<div class="colorPage2">
+  <div class="colorPallete2">
+    <img src="images/LOGO 2.png" class="reffLogo" />
+    <div class="color3"></div>
+    <p class="colorCode">code warna</p>
+    <div class="color4"></div>
+    <p class="colorCode">code warna</p>
+    <div class="color5"></div>
+    <p class="colorCode">code warna</p>
+  </div>
+  <div class="colorFilosofi">
+    <p class="filosofiText">
+gwegegerg
+    </p>
+  </div>
+</div>
+</div>
+
+<script>
+   humbergMenu = document.getElementById('HumbergMenu');
+        list = document.getElementById('list');
+
+        //Haumburger Menu
+        humbergMenu.addEventListener('click', function(event) {
+            list.style.display = list.style.display === 'block' ? 'none' : 'block';
+            event.stopPropagation();
+        });
+
+        document.addEventListener('click', function(event) {
+            if(!humbergMenu.contains(event.target) && !list.contains(event.target)) {
+                list.style.display = 'none';
+            }
+        });
+</script>
+</body>
+</html>
