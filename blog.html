@@ -110,8 +110,8 @@
         .picSlider img {
             width: 100%;
             height: auto;
+            object-fit: contain;
             aspect-ratio: 16 / 9;
-            /* object-fit: cover; */
             flex: 0 0 100%;
         }
 
@@ -142,10 +142,9 @@
 
         .imgProject img {
             width: 100%;
-            height: auto;
             /* rasio 4:3 atau 3:2 / resolusi picture minimal : 600x400px atau 900x600px */
             aspect-ratio: 4 / 3;
-            /* object-fit: cover; */
+            object-fit: contain;
             border-radius: 10%;
             transform: rotate(10deg);
         }
@@ -441,7 +440,7 @@
 
 <script>
 
-humbergMenu = document.getElementById('HumbergMenu');
+        humbergMenu = document.getElementById('HumbergMenu');
         list = document.getElementById('list');
 
         //Haumburger Menu
